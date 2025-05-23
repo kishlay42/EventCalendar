@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Calendar, momentLocalizer, Views } from 'react-big-calendar';
 import moment from 'moment';
 import EventDialog from './EventDialog';
@@ -137,6 +137,24 @@ const MyCalendar = ({ events, onUpdateEvent, onDeleteEvent, onAddEvent }) => {
       </Select>
     </FormControl>
   );
+
+  /**
+   * Keyboard navigation handler
+   */
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (view === Views.MONTH) {
+        if (e.key === 'ArrowLeft') {
+          setDate(moment(date).subtract(1, 'month').toDate());
+        } else if (e.key === 'ArrowRight') {
+          setDate(moment(date).add(1, 'month').toDate());
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [date, view]);
 
   return (
     <div className="calendar">
