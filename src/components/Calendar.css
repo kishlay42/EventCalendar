@@ -1,0 +1,40 @@
+/* Calendar styles */
+.calendar {
+    background: #75abd8;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+  }
+
+  
+/* React Big Calendar custom styles */
+.rbc-calendar {
+  font-family: inherit;
+}
+
+.rbc-header {
+  padding: 10px;
+  font-weight: 600;
+}
+
+.rbc-event {
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.rbc-today {
+  background-color: #e3f2fd;
+}
+
+.rbc-off-range-bg {
+  background-color: #f5f5f5;
+}
+
+.rbc-event.rbc-selected {
+  background-color: #1976d2;
+}
+
+.rbc-event:focus {
+  outline: none;
+}
